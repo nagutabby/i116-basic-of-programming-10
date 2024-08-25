@@ -1,5 +1,6 @@
 from parse_tree import VariableParseTree, NumberParseTree, AssignmentParseTree, AdditionParseTree, MultiplicationParseTree, RemainderParseTree, SequentialCompositionParseTree
 from list_to_string import l2s
+from vm import VM
 
 x = VariableParseTree('x')
 y = VariableParseTree('y')
@@ -23,3 +24,4 @@ program3 = SequentialCompositionParseTree(program2, assignment4)
 print(program3)
 print(program3.interpret({}))
 print(l2s(program3.compile()))
+print(VM(program3.compile()).run())

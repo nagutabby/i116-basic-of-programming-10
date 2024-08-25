@@ -121,6 +121,4 @@ class VM():
                 self.stk = self.stk.pop()
             else:
                 raise VMError("An invalid command was met!")
-        if self.stk.is_empty():
-            raise VMError('stk is empty when vm terminates!')
         return self.environment
