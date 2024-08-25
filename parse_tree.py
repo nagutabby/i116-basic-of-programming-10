@@ -231,8 +231,8 @@ class AssignmentParseTree(StatementParseTree):
         environment[self.variable.name] = self.expression.interpret(environment)
         return environment
     def compile(self):
-        cl1 = self.exp.compile()
-        return cl1 + [Command(CName.STORE, self.var.name)]
+        cl1 = self.expression.compile()
+        return cl1 + [Command(CName.STORE, self.variable.name)]
 
 class SequentialCompositionParseTree(StatementParseTree):
     def __init__(self, statement1: StatementParseTree, statement2: StatementParseTree) -> None:
@@ -243,6 +243,6 @@ class SequentialCompositionParseTree(StatementParseTree):
     def interpret(self, environment):
         return self.statement2.interpret(self.statement1.interpret(environment))
     def compile(self):
-        cl1 = self.stm1.compile()
-        cl2 = self.stm2.compile()
+        cl1 = self.statement1.compile()
+        cl2 = self.statement2.compile()
         return cl1 + cl2
