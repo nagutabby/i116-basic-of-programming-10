@@ -18,4 +18,3 @@ class Command():
             return f'{self.cname}({self.name})'
         else:
             return str(self.cname)
-
