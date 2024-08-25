@@ -1,4 +1,4 @@
-from custom_exception import DivisionByZeroException
+from custom_exception import DivisionByZeroException, UndefinedVariableException
 from command import Command
 from cname import CName
 
