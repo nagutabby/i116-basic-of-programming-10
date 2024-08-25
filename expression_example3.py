@@ -6,5 +6,5 @@ assignment1 = AssignmentParseTree(x, two)
 expression1 = MultiplicationParseTree(x, x)
 assignment2 = AssignmentParseTree(x, expression1)
 program1 = SequentialCompositionParseTree(assignment1, assignment2)
-
 print(program1)
+print(program1.interpret({}))
