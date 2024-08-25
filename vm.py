@@ -1,6 +1,6 @@
 from stack import EmptyStack
 from list_to_string import l2s
-from custom_exception import VMError, DivisionByZeroException
+from custom_exception import VMError, DivisionByZeroException, UndefinedVariableException
 from cname import CName
 
 class VM():
@@ -112,7 +112,7 @@ class VM():
                 try:
                     x = self.environment[com.name]
                 except KeyError:
-                    raise UndefinedVar('undefined variable')
+                    raise UndefinedVariableException('undefined variable')
                 self.stk = self.stk.push(x)
             elif com.cname == CName.STORE:
                 if self.stk.is_empty():
